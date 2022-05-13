@@ -13,8 +13,8 @@ def sorteia_pais(dados):
     lista_paises = []
     for pais in dados:
         lista_paises.append(pais)
-    resultado = random.choice(lista_paises)
-    return resultado
+    pais_sorteado= random.choice(lista_paises)
+    return pais_sorteado
 
 ### Função 3
 import math
