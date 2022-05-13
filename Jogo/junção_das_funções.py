@@ -25,9 +25,9 @@ def haversine(raio_terra,l1,f1,l2,f2):
     return resposta
 
 ### Função 4
-def adiciona_em_ordem(nome_pais, distancia, lista_paises):
+def adiciona_em_ordem(pais, distancia, lista_paises):
 
-    adicionar = [nome_pais,distancia]
+    adicionar = [pais,distancia]
     i = 0
     if len(lista_paises) > 0 :
         tamanho = len(lista_paises)
@@ -40,7 +40,7 @@ def adiciona_em_ordem(nome_pais, distancia, lista_paises):
         if sublista[0] == nome_pais:
             return lista_paises
             
-        if sublista[0] != nome_pais:
+        if sublista[0] != pais:
             if sublista[1] >= distancia:
                 lista_paises.insert(i,adicionar)
                 return lista_paises
@@ -54,7 +54,7 @@ def adiciona_em_ordem(nome_pais, distancia, lista_paises):
 def esta_na_lista(pais, lista_paises):
     i = 0
     for sublista in lista_paises:
-        if nome_pais in sublista:
+        if pais in sublista:
             i += 1    
     if i > 0:
         return True
