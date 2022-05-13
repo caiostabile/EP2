@@ -51,7 +51,7 @@ def adiciona_em_ordem(nome_pais, distancia, lista_paises):
         i += 1
 
 ### Função 5
-def esta_na_lista(nome_pais, lista_paises):
+def esta_na_lista(pais, lista_paises):
     i = 0
     for sublista in lista_paises:
         if nome_pais in sublista:
