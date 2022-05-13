@@ -18,24 +18,28 @@ info_geo_escolhido = info_escolhido['geo']
 lat_escolhido = info_geo_escolhido['latitude']
 log_escolhido = info_geo_escolhido['longitude']
 
+for ppp in dados_normalizado:
+    lista_paises.append(ppp)
+    print(lista_paises)
+
 while i < 20 :
     palpite = str(input('Qual seu palpite? :  '))
     
-    info_palpite = dados_normalizado[palpite]
-    info_geo_palpite = info_palpite['geo']
-    lat_palpite = info_geo_palpite['latitude']
-    log_palpite = info_geo_palpite['longitude']
-    
-    distancia_palpite = haversine(raio_terra, lat_escolhido, log_escolhido, lat_palpite, log_palpite)
-    distancia_int = int(distancia_palpite)
-    print('Distancia: {}'.format(distancia_int))
+    if palpite in lista_paises:
+        info_palpite = dados_normalizado[palpite]
+        info_geo_palpite = info_palpite['geo']
+        lat_palpite = info_geo_palpite['latitude']
+        log_palpite = info_geo_palpite['longitude']    
+        distancia_palpite = haversine(raio_terra, lat_escolhido, log_escolhido, lat_palpite, log_palpite)
+        distancia_int = int(distancia_palpite)
+        print('Distancia: {}'.format(distancia_int))
+
+    elif palpite == 'dica':
 
     
-    
-    
-    
-    
-    
+        
+
+            
     i += 1
 
 
