@@ -24,6 +24,7 @@ for ppp in dados_normalizado:
 
 while i < 20 :
     palpite = str(input('Qual seu palpite? :  '))
+    palpite = palpite.lower()
     
     if palpite in lista_paises:
         info_palpite = dados_normalizado[palpite]
@@ -36,11 +37,14 @@ while i < 20 :
 
     elif palpite == 'dica':
         print('dica')
+        print('1 - cor da bandeira(valor: 4 palpites)\n2 - letra da capital(valor: 3 palpites)\n3 - área(valor: 6 palpites)\n4 - população(valor: 5 palpites)\n5 - continente(valor: 7 palpites)\n0 - sem dica(valor: 0 palpites)')
+        n_dica = int(input('Escolha sua opção [0 | 1 | 2 | 3 | 4 | 5]'))
+        
+
     else :
         print('país desconhecido')  
             
     i += 1
-
 
 
 
