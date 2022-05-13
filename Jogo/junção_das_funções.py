@@ -1,5 +1,5 @@
 ### Função 1
-def normaliza(dic):
+def normaliza(dados):
     dic_vazio={}
     for cont,pais in dic.items():
         for pais,dados in pais.items():
