@@ -1,7 +1,7 @@
 ### Função 1
 def normaliza(dados):
     dic_vazio={}
-    for cont,pais in dic.items():
+    for cont,pais in dados.items():
         for pais,dados in pais.items():
             dic_vazio[pais]=dados
             dic_vazio[pais]['continente']=cont
@@ -21,7 +21,7 @@ import math
 def haversine(raio_terra,l1,f1,l2,f2):
     parte1=(math.sin(math.radians((l2-l1)/2)))**2
     parte2=math.cos(math.radians(l1))* math.cos(math.radians(l2))*(math.sin(math.radians((f2-f1)/2)))**2
-    resposta = 2*r*math.asin((parte1+parte2)**0.5)
+    resposta = 2*raio_terra*math.asin((parte1+parte2)**0.5)
     return resposta
 
 ### Função 4
@@ -37,7 +37,7 @@ def adiciona_em_ordem(pais, distancia, lista_paises):
         resposta = lista_paises.append(adicionar)
         
     for sublista in lista_paises:
-        if sublista[0] == nome_pais:
+        if sublista[0] == pais:
             return lista_paises
             
         if sublista[0] != pais:
