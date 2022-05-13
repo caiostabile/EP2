@@ -1,11 +1,11 @@
 ### Função 1
 def normaliza(dados):
-    dic_vazio={}
+    dic_paises={}
     for cont,pais in dados.items():
         for pais,dados in pais.items():
-            dic_vazio[pais]=dados
-            dic_vazio[pais]['continente']=cont
-    return dic_vazio
+            dic_paises[pais]=dados
+            dic_paises[pais]['continente']=cont
+    return dic_paises
 
 ### Função 2
 import random
