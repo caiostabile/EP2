@@ -35,10 +35,9 @@ while i < 20 :
         print('Distancia: {}'.format(distancia_int))
 
     elif palpite == 'dica':
-
-    
-        
-
+        print('dica')
+    else :
+        print('país desconhecido')  
             
     i += 1
 
