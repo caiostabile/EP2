@@ -1,0 +1,2 @@
+print("JOGO DOS PAÍSES")
+
