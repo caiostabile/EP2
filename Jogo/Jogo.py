@@ -45,6 +45,3 @@ while i < 20 :
         print('país desconhecido')  
             
     i += 1
-
-
-
