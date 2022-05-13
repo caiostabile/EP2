@@ -1,14 +1,23 @@
-print("JOGO DOS PAÍSES\nComandos:\ndica - entra no mercado de dicas")
+print("JOGO DOS PAÍSES\nComandos:\ndica - entra no mercado de dicas\n\nTente advinhar o país\nVocê tem 20 tentativas!")
 
-
+#imports
 import random
-def sorteia_pais(dados):
-    lista_paises = []
-    for pais in dados:
-        lista_paises.append(pais)
-    pais_sorteado= random.choice(lista_paises)
-    return pais_sorteado
+import math
+from junção_das_funções import *
+from Dados import *
 
-pais_escolhido = sorteia_pais
+#variaveis:
+i = 0 
+
+#funções do jogo:
+dados_normalizado = normaliza(dados)
+pais_escolhido = sorteia_pais(dados_normalizado)
+
+while i < 20 :
+    palpite = str(input('Qual seu palpite:    '))
+    distancia_palpite = haversine(raio_terra, )
+    i += 1
+
+
 
 
