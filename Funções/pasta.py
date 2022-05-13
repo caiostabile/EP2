@@ -1,1 +1,1 @@
-def sorteia_letra(palavra, lista_restrita):
+def sorteia_letra(palavra, lista_restrita): gsdhbujckn\
