@@ -47,7 +47,7 @@ while i < 20 and continua_jogo == True:
                 if 20 - i == 1:
                     i += 2
                 else:
-                    print('Distancia em relação {}: {} Km'.format(palpite,distancia_int))
+                    print('Distancia em relação ao {}  {} Km'.format(palpite,distancia_int))
                     i += 1
         elif palpite == pais_escolhido:
             print("PARABÉNS VOCÊ ACETOU!")
