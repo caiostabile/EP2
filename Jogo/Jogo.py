@@ -72,8 +72,7 @@ while i < 20 :
         elif n_dica == 5:
             print(info_escolhido["continente"])
             i += 7
-        
-    
+            
     else :
         print('país desconhecido')  
             
