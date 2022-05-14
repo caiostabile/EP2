@@ -11,7 +11,8 @@ from Dados import *
 #variaveis:
 i = 0
 lista_paises = []
-numero_de_jogadas = 20 - i 
+
+continua_jogo = True
 
 #funções do jogo:
 dados_normalizado = normaliza(dados)
@@ -23,11 +24,15 @@ log_escolhido = info_geo_escolhido['longitude']
 
 for ppp in dados_normalizado:
     lista_paises.append(ppp)
-    print(lista_paises)
+print(pais_escolhido)
 
-while i < 20 :
+continua_jogo = True
+
+while i < 20 and continua_jogo == True:
+    print("\n\nQuantidade de palpites: {}".format(20-i))
     palpite = str(input('Qual seu palpite? :  '))
     palpite = palpite.lower()
+    
     
     if palpite in lista_paises:
         info_palpite = dados_normalizado[palpite]
@@ -36,15 +41,23 @@ while i < 20 :
         log_palpite = info_geo_palpite['longitude']    
         distancia_palpite = haversine(raio_terra, lat_escolhido, log_escolhido, lat_palpite, log_palpite)
         distancia_int = int(distancia_palpite)
-        print('Distancia: {}'.format(distancia_int))
+
+        if palpite != pais_escolhido:
+            if i < 20:
+                if 20 - i == 1:
+                    i += 2
+                else:
+                    print('Distancia em relação {}: {} Km'.format(palpite,distancia_int))
+                    i += 1
+        elif palpite == pais_escolhido:
+            print("PARABÉNS VOCÊ ACETOU!")
+            continua_jogo = False
+        
 
     elif palpite == 'dica' or palpite =='Dica':
-        print('dica')
+        print('MERCADO DE DICAS')
         print('1 - cor da bandeira(valor: 4 palpites)\n2 - letra da capital(valor: 3 palpites)\n3 - área(valor: 6 palpites)\n4 - população(valor: 5 palpites)\n5 - continente(valor: 7 palpites)\n0 - sem dica(valor: 0 palpites)')
         n_dica = int(input('Escolha sua opção [0 | 1 | 2 | 3 | 4 | 5]:'))
-
-        if n_dica == 0 :
-            print(numero_de_jogadas)
 
         if n_dica == 1:
             cores_bandeira = info_escolhido["bandeira"]
@@ -53,27 +66,52 @@ while i < 20 :
                 cores_bandeira[cor] = porcentagem
                 if porcentagem >= 30:
                     lista_cores.append(cor)
-            print(lista_cores)
-            i += 4
+            if 20 - i > 4:
+                print("Cores da bandeira {}". format(lista_cores))
+                i += 4
+            elif 20 - i == 4:
+                i += 5
+            else:
+                print("Você nao tem palpites suficientes!")
 
         elif n_dica == 2:
             capital = info_escolhido["capital"]
-            print(sorteia_letra(palpite,[capital[0]]))
-            i += 3
-
+            if 20 - i > 3:
+                print("Uma letra da capital: {}". format(sorteia_letra(palpite,[capital[0]])))
+                i += 3
+            elif 20 - i == 3:
+                i += 4
+            else: 
+                print("Você nao tem palpites suficientes!")
         elif n_dica == 3:
-            print(info_escolhido["area"])
-            i += 6
+            if 20 - i > 6:
+                print("Área: {} Km".format(info_escolhido["area"]))
+                i += 6
+            elif 20 - i == 6:
+                i += 7
+            else: 
+                print("Você nao tem palpites suficientes!")
 
         elif n_dica == 4:
-            print(info_escolhido["populacao"])
-            i += 5
+            if 20 - i > 5:
+                print("População: {} habitantes".format(info_escolhido["populacao"]))
+                i += 5
+            elif 20 - i == 5:
+                i += 6
+            else: 
+                print("Você nao tem palpites suficientes!")
 
         elif n_dica == 5:
-            print(info_escolhido["continente"])
-            i += 7
+            if 20 - i > 7:
+                print("Continente: {}".format(info_escolhido["continente"]))
+                i += 7
+            elif 20 - i == 7:
+                i += 8
+            else: 
+                print("Você nao tem palpites suficientes!")
             
     else :
         print('país desconhecido')  
-            
-    i += 1
+
+if i == 21:
+    print("VOCÊ PERDEU!\nO país era {}".format(pais_escolhido))
