@@ -24,7 +24,7 @@ log_escolhido = info_geo_escolhido['longitude']
 
 for ppp in dados_normalizado:
     lista_paises.append(ppp)
-print(pais_escolhido)
+
 
 continua_jogo = True
 
