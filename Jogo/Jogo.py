@@ -18,7 +18,11 @@ while continua_jogo == True:
 #funções do jogo:
     dados_normalizado = normaliza(dados)
     pais_escolhido = sorteia_pais(dados_normalizado)
-    info_escolhido = dados_normalizado[pais_escolhidopais_escolhido]
+
+    info_escolhido = dados_normalizado[pais_escolhido]
+
+    info_escolhido = dados_normalizado[pais_escolhido]
+
     info_geo_escolhido = info_escolhido['geo']
     lat_escolhido = info_geo_escolhido['latitude']
     log_escolhido = info_geo_escolhido['longitude']
@@ -124,4 +128,9 @@ while continua_jogo == True:
             continua_jogo = True
             i = 0
         if continua_jogo == 'n':
+
             continua_jogo = False
+
+            
+
+
