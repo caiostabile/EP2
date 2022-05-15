@@ -9,11 +9,12 @@ while continua_jogo == True:
     from sklearn.decomposition import dict_learning
     from junção_das_funções import *
     from Dados import *
+    from colorama import Fore, Back, Style
 
 #variaveis:
     i = 0
     lista_paises = []
-
+    t = '\nDistância:\n'
 
 #funções do jogo:
     dados_normalizado = normaliza(dados)
@@ -52,14 +53,14 @@ while continua_jogo == True:
                         i += 2
                     else:
                         if distancia_int < 1000 :
-                            print('Distancia em relação ao {}  {} Km'.format(palpite,distancia_int))
+                            print(Fore.GREEN+'\nDistancia ao(a) {} é de {} km\n'.format(palpite,distancia_int)+Style.RESET_ALL)
                         if distancia_int > 1000 and distancia_int <= 3000 :
-                            print('Distancia em relação ao {}  {} Km'.format(palpite,distancia_int))
+                            print(Fore.BLUE+'\nDistancia ao(a) {} é de {}\n'.format(palpite,distancia_int)+Style.RESET_ALL)
                         if distancia_int > 3000 :
-                            print('Distancia em relação ao {}  {} Km'.format(palpite,distancia_int))
+                            print(Fore.RED+'\nDistancia ao(a) {} é de {}\n'.format(palpite,distancia_int)+Style.RESET_ALL)
                         i += 1
             elif palpite == pais_escolhido:
-                print("PARABÉNS VOCÊ ACETOU!")
+                print(Fore.GREEN+'\nPARABÉNS VOCÊ ACETOU!\n'+Style.RESET_ALL)
                 continua_jogo = False
                 i = 22
         
@@ -124,7 +125,7 @@ while continua_jogo == True:
             print('país desconhecido')  
 
     if i == 21:
-        print("VOCÊ PERDEU!\nO país era {}".format(pais_escolhido))
+        print(Fore.RED+"\nVOCÊ PERDEU!\nO país era {}\n".format(pais_escolhido)+Style.RESET_ALL)
         i = 22
 
     if i == 22:
@@ -135,7 +136,3 @@ while continua_jogo == True:
         if continua_jogo == 'n':
 
             continua_jogo = False
-
-
-
-
