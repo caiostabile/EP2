@@ -9,7 +9,7 @@ while continua_jogo == True:
     from sklearn.decomposition import dict_learning
     from junção_das_funções import *
     from Dados import *
-
+    from colorama import Fore, Back, Style
 #variaveis:
     i = 0
     lista_paises = []
@@ -46,13 +46,18 @@ while continua_jogo == True:
 
             if palpite != pais_escolhido:
                 if i < 20:
-                    if num_palpites == 1:
+                    if 20 - i == 1:
                         i += 2
                     else:
-                        print('{} ------> {} Km'.format(palpite,distancia_int))
+                        if distancia_int < 1000 :
+                            print(Fore.GREEN+'\n{} ------> {} Km\n'.format(palpite,distancia_int)+Style.RESET_ALL)
+                        if distancia_int > 1000 and distancia_int <= 3000 :
+                            print(Fore.BLUE+'\n{} ------> {} Km\n'.format(palpite,distancia_int)+Style.RESET_ALL)
+                        if distancia_int > 3000 :
+                            print(Fore.RED+'\n{} ------> {} Km\n'.format(palpite,distancia_int)+Style.RESET_ALL)
                         i += 1
             elif palpite == pais_escolhido:
-                print("PARABÉNS VOCÊ ACETOU!")
+                print(Fore.GREEN+'\nPARABÉNS VOCÊ ACETOU!\n'+Style.RESET_ALL)
                 continua_jogo = False
                 i = 22
         
@@ -134,14 +139,12 @@ while continua_jogo == True:
                 i += 7
                 dicas_usadas.append(5)
  
-            elif len(lista_dicas) == 1:
-                print("Não é possível acessar o mercado de dicas, pois seu estoque de palpites é insuficiente")
-
+            
         elif palpite not in lista_paises :
             print('país desconhecido')  
 
     if i == 21:
-        print("VOCÊ PERDEU!\nO país era {}".format(pais_escolhido))
+        print(Fore.RED+"\nVOCÊ PERDEU!\nO país era {}\n".format(pais_escolhido)+Style.RESET_ALL)
         i = 22
 
     if i == 22:
